@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+$fam: "Montserrat";
+
+body {
+   margin: 0px;
+   padding: 0px;
+   box-sizing: border-box;
+
+   font-family: $fam;
+}
+main {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+   grid-template-rows: 100px auto;
+   grid-template-areas:
+      "navbar"
+      "header"
+      "hero"
+      "footer";
+}
+.navbar {
+   grid-area: navbar;
+}
+.header {
+   grid-area: header;
+}
+.hero {
+   grid-area: hero;
+}
+.footer {
+   grid-area: footer;
+}
+
+.navbar {
+   display: flex;
+   justify-content: space-around;
+   border-bottom: solid rgba(0, 0, 0, 0.13) 1px;
+   .logo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      margin-top: 25px;
+      h2 {
+         font-family: serif;
+         font-size: 20pt;
+         line-height: 20pt;
+      }
+      p {
+         font-family: $fam;
+         font-size: 14pt;
+         line-height: 14pt;
+         transform: translateY(-40px);
+      }
+   }
+   .navlinks {
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      width: 360px;
+      a {
+         text-decoration: none;
+         color: black;
+         justify-content: center;
+      }
+   }
+}
+.hero {
+   width: 80%;
+   margin-left: 50%;
+   transform: translateX(-50%);
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
+   grid-template-rows: auto;
+   grid-template-areas:
+      "1 2 3"
+      "4 5 6"
+      "7 8 9"
+      "10 . .";
+   .prod {
+      display: flex;
+      flex-direction: column;
+   }
+   .1 {
+      grid-area: 1;
+   }
+   .2 {
+      grid-area: 2;
+   }
+   .3 {
+      grid-area: 3;
+   }
+   .4 {
+      grid-area: 4;
+   }
+   .5 {
+      grid-area: 5;
+   }
+   .6 {
+      grid-area: 6;
+   }
+   .7 {
+      grid-area: 7;
+   }
+   .8 {
+      grid-area: 8;
+   }
+   .9 {
+      grid-area: 9;
+   }
+   .10 {
+      grid-area: 10;
+   }
+}
