@@ -121,7 +121,7 @@ main {
   -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   grid-column-gap: 40px;
-  grid-row-gap: 30px;
+  grid-row-gap: 90px;
   -ms-flex-line-pack: center;
       align-content: center;
 }
