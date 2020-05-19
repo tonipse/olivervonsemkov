@@ -241,12 +241,6 @@ main {
       width: 100%;
    }
 }
-@media only screen and (max-width: 550px) {
-   .hero {
-      grid-template-columns: repeat(1, 1fr);
-      text-align: center;
-   }
-}
 
 #menuToggle {
    display: block;
