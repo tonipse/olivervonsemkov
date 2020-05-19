@@ -73,14 +73,17 @@ main {
   font-family: serif;
   font-size: 20pt;
   line-height: 20pt;
+  font-weight: 400;
 }
 
 .navbar .logo p {
   font-family: "Montserrat";
   font-size: 14pt;
   line-height: 14pt;
-  -webkit-transform: translateY(-40px);
-          transform: translateY(-40px);
+  -webkit-transform: translateY(-34px);
+          transform: translateY(-34px);
+  font-style: italic;
+  font-weight: 200;
 }
 
 .navbar .navlinks {
@@ -102,6 +105,10 @@ main {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.navbar .navlinks a:hover {
+  color: orange;
 }
 
 .hero {
@@ -133,7 +140,6 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  border: solid 1px black;
   -webkit-transition: 0.3s;
   transition: 0.3s;
   color: #6c6cd6;
@@ -154,6 +160,10 @@ main {
   color: white;
   padding: 10px;
   border-radius: 20px;
+}
+
+.hero .prod a:hover {
+  background-color: #aa7d7d;
 }
 
 .hero .prod .price {
@@ -197,12 +207,14 @@ main {
 .footer {
   width: 90%;
   margin-left: 50%;
+  margin-top: 70px;
+  margin-bottom: 200px;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  -ms-grid-columns: (minmax(362px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(362px, 1fr));
   grid-column-gap: 200px;
 }
 
@@ -219,5 +231,59 @@ main {
 .footer .left .links a {
   text-decoration: none;
   color: black;
+  font-size: 17pt;
+  font-weight: 300;
+}
+
+.footer .left h5 {
+  font-size: 12pt;
+}
+
+.footer .left p {
+  font-weight: 300;
+}
+
+.footer .left .mail a {
+  font-size: 11pt;
+  text-decoration: none;
+  color: black;
+}
+
+.footer .mid h3 {
+  font-weight: 700;
+  font-size: 15pt;
+}
+
+.footer .mid p {
+  font-weight: 300;
+  font-size: 14pt;
+}
+
+.footer .right h4 {
+  font-weight: 300;
+  font-size: 18pt;
+}
+
+.footer .right input {
+  padding: 10px;
+  padding-left: 55px;
+  padding-right: 55px;
+  text-align: center;
+}
+
+.footer .right button {
+  padding: 10px;
+  background-color: orange;
+  border: none;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.footer .right button:hover {
+  background-color: darkorange;
+}
+
+.copyright {
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */

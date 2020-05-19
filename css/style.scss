@@ -49,12 +49,15 @@ main {
          font-family: serif;
          font-size: 20pt;
          line-height: 20pt;
+         font-weight: 400;
       }
       p {
          font-family: $fam;
          font-size: 14pt;
          line-height: 14pt;
-         transform: translateY(-40px);
+         transform: translateY(-34px);
+         font-style: italic;
+         font-weight: 200;
       }
    }
    .navlinks {
@@ -66,6 +69,9 @@ main {
          text-decoration: none;
          color: black;
          justify-content: center;
+      }
+      a:hover {
+         color: orange;
       }
    }
 }
@@ -85,8 +91,6 @@ main {
       justify-content: center;
       align-items: center;
 
-      border: solid 1px black;
-
       transition: 0.3s;
 
       color: rgb(108, 108, 214);
@@ -102,6 +106,9 @@ main {
          color: white;
          padding: 10px;
          border-radius: 20px;
+      }
+      a:hover {
+         background-color: rgb(170, 125, 125);
       }
       .price {
          display: flex;
@@ -135,9 +142,11 @@ main {
 .footer {
    width: 90%;
    margin-left: 50%;
+   margin-top: 70px;
+   margin-bottom: 200px;
    transform: translateX(-50%);
    display: grid;
-   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   grid-template-columns: repeat(auto-fit, minmax(362px, 1fr));
    grid-column-gap: 200px;
 
    .left {
@@ -147,7 +156,55 @@ main {
          a {
             text-decoration: none;
             color: black;
+            font-size: 17pt;
+            font-weight: 300;
          }
       }
+      h5 {
+         font-size: 12pt;
+      }
+      p {
+         font-weight: 300;
+      }
+      .mail a {
+         font-size: 11pt;
+         text-decoration: none;
+         color: black;
+      }
    }
+   .mid {
+      h3 {
+         font-weight: 700;
+         font-size: 15pt;
+      }
+      p {
+         font-weight: 300;
+         font-size: 14pt;
+      }
+   }
+   .right {
+      h4 {
+         font-weight: 300;
+         font-size: 18pt;
+      }
+      input {
+         padding: 10px;
+         padding-left: 55px;
+         padding-right: 55px;
+         text-align: center;
+      }
+      button {
+         padding: 10px;
+         background-color: orange;
+         border: none;
+         margin-left: 10px;
+         cursor: pointer;
+      }
+      button:hover {
+         background-color: darkorange;
+      }
+   }
+}
+.copyright {
+   text-align: center;
 }
