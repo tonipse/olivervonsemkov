@@ -10,11 +10,9 @@ body {
 main {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(260px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  -ms-grid-rows: 100px auto;
-      grid-template-rows: 100px auto;
-      grid-template-areas: "navbar" "header" "hero" "footer";
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+      grid-template-areas: "navbar" "header" "hero" "footer" "copyright";
 }
 
 .navbar {
@@ -39,6 +37,12 @@ main {
   -ms-grid-row: 4;
   -ms-grid-column: 1;
   grid-area: footer;
+}
+
+.copyright {
+  -ms-grid-row: 5;
+  -ms-grid-column: 1;
+  grid-area: copyright;
 }
 
 .navbar {
@@ -101,17 +105,18 @@ main {
 }
 
 .hero {
-  width: 80%;
+  width: 60%;
   margin-left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(1fr, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(1fr, 1fr));
-  -ms-grid-rows: auto;
-      grid-template-rows: auto;
-      grid-template-areas: "1 2 3" "4 5 6" "7 8 9" "10 . .";
+  -ms-grid-columns: (minmax(200px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-column-gap: 40px;
+  grid-row-gap: 30px;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 .hero .prod {
@@ -122,65 +127,97 @@ main {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: solid 1px black;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+  color: #6c6cd6;
 }
 
-.hero .1 {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-  grid-area: 1;
+.hero .prod img {
+  width: 200px;
+  height: auto;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 0%;
+     object-position: 0%;
 }
 
-.hero .2 {
-  -ms-grid-row: 1;
-  -ms-grid-column: 2;
-  grid-area: 2;
+.hero .prod a {
+  background-color: #db9494;
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+  border-radius: 20px;
 }
 
-.hero .3 {
-  -ms-grid-row: 1;
-  -ms-grid-column: 3;
-  grid-area: 3;
+.hero .prod .price {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 200px;
 }
 
-.hero .4 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-  grid-area: 4;
+.hero .prod .price p {
+  color: #cc4848;
+  font-size: 16pt;
+  font-weight: 600;
 }
 
-.hero .5 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 2;
-  grid-area: 5;
+.hero .prod:hover {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
 }
 
-.hero .6 {
-  -ms-grid-row: 2;
-  -ms-grid-column: 3;
-  grid-area: 6;
+.header {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.hero .7 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
-  grid-area: 7;
+.header h1 {
+  font-size: 30pt;
+  font-weight: 300;
 }
 
-.hero .8 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 2;
-  grid-area: 8;
+.header p {
+  font-size: 17pt;
+  font-weight: 200;
 }
 
-.hero .9 {
-  -ms-grid-row: 3;
-  -ms-grid-column: 3;
-  grid-area: 9;
+.footer {
+  width: 90%;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-column-gap: 200px;
 }
 
-.hero .10 {
-  -ms-grid-row: 4;
-  -ms-grid-column: 1;
-  grid-area: 10;
+.footer .left .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.footer .left .links a {
+  text-decoration: none;
+  color: black;
 }
 /*# sourceMappingURL=style.css.map */
