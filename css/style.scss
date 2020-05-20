@@ -16,7 +16,10 @@ main {
       "navbar"
       "ham"
       "header"
+      "underheader"
+      "bigprod"
       "hero"
+      "textfooter"
       "footer"
       "copyright";
 }
@@ -26,8 +29,17 @@ main {
 .header {
    grid-area: header;
 }
+.underheader {
+   grid-area: underheader;
+}
+.bigprod {
+   grid-area: bigprod;
+}
 .hero {
    grid-area: hero;
+}
+.textfooter {
+   grid-area: textfooter;
 }
 .footer {
    grid-area: footer;
@@ -141,13 +153,62 @@ main {
 .header {
    text-align: center;
    margin-bottom: 30px;
+   color: white;
+   background-image: url(../img/headimg.jpg);
+   background-position: center center;
+   background-size: cover;
    h1 {
       font-size: 30pt;
-      font-weight: 300;
+      font-weight: 400;
    }
    p {
       font-size: 17pt;
-      font-weight: 200;
+      font-weight: 300;
+   }
+}
+.underheader {
+   text-align: center;
+   font-size: 19pt;
+   font-weight: 300;
+}
+.bigprod {
+   width: 60%;
+   margin-left: 50%;
+   margin-top: 40px;
+   margin-bottom: 40px;
+   transform: translateX(-50%);
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
+   grid-template-rows: 400px;
+   .leftprod {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+         height: 90%;
+      }
+   }
+   .rightprod {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+      color: white;
+      background-color: rgb(212, 160, 169);
+      p {
+         width: 70%;
+         margin-left: 50%;
+         transform: translateX(-50%);
+      }
+      a {
+         text-decoration: none;
+         color: rgb(212, 160, 169);
+         padding: 10px;
+         background-color: white;
+         width: 30%;
+         margin-left: 50%;
+         transform: translateX(-50%);
+      }
    }
 }
 .footer {
