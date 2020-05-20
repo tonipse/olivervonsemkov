@@ -8,6 +8,8 @@ body {
    box-sizing: border-box;
 
    font-family: $fam;
+   max-width: 100%;
+   overflow-x: hidden;
 }
 main {
    display: grid;
