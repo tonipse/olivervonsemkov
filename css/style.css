@@ -313,6 +313,41 @@ main {
           transform: translateX(-50%);
 }
 
+.bigprod .rightprod a:hover {
+  background-color: #d1d1d1;
+}
+
+.textfooter {
+  width: 60%;
+  margin-left: 50%;
+  margin-top: 40px;
+  margin-bottom: 40px;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+      grid-template-areas: "up" "down";
+}
+
+.textfooter .txt {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: up;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(262px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
+  grid-column-gap: 40px;
+}
+
+.textfooter .maintxt {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: down;
+}
+
 .footer {
   width: 90%;
   margin-left: 50%;

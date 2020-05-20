@@ -209,6 +209,30 @@ main {
          margin-left: 50%;
          transform: translateX(-50%);
       }
+      a:hover {
+         background-color: rgb(209, 209, 209);
+      }
+   }
+}
+.textfooter {
+   width: 60%;
+   margin-left: 50%;
+   margin-top: 40px;
+   margin-bottom: 40px;
+   transform: translateX(-50%);
+   display: grid;
+   grid-template-columns: 1fr;
+   grid-template-areas:
+      "up"
+      "down";
+   .txt {
+      grid-area: up;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
+      grid-column-gap: 40px;
+   }
+   .maintxt {
+      grid-area: down;
    }
 }
 .footer {
