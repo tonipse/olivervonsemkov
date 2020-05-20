@@ -178,6 +178,7 @@ main {
    margin-bottom: 40px;
    transform: translateX(-50%);
    display: grid;
+   cursor: pointer;
    grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
    grid-template-rows: 400px;
    .leftprod {
@@ -208,6 +209,8 @@ main {
          width: 30%;
          margin-left: 50%;
          transform: translateX(-50%);
+         font-weight: 500;
+         font-size: 17pt;
       }
       a:hover {
          background-color: rgb(209, 209, 209);
@@ -225,11 +228,20 @@ main {
    grid-template-areas:
       "up"
       "down";
+   h1 {
+      font-size: 20pt;
+      font-weight: 400;
+   }
+   p {
+      font-weight: 300;
+      font-size: 14pt;
+   }
    .txt {
       grid-area: up;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       grid-column-gap: 40px;
+      text-align: center;
    }
    .maintxt {
       grid-area: down;
@@ -323,6 +335,16 @@ main {
       transform: translate(0px);
    }
    main {
+      width: 100%;
+   }
+   .textfooter {
+      margin-left: 10px;
+      transform: translateX(0);
+      width: 100%;
+   }
+   .bigprod {
+      margin-left: 10px;
+      transform: translateX(0);
       width: 100%;
    }
 }

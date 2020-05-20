@@ -257,6 +257,7 @@ main {
           transform: translateX(-50%);
   display: -ms-grid;
   display: grid;
+  cursor: pointer;
   -ms-grid-columns: (minmax(282px, 1fr))[auto-fit];
       grid-template-columns: repeat(auto-fit, minmax(282px, 1fr));
   -ms-grid-rows: 400px;
@@ -311,6 +312,8 @@ main {
   margin-left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
+  font-weight: 500;
+  font-size: 17pt;
 }
 
 .bigprod .rightprod a:hover {
@@ -331,15 +334,26 @@ main {
       grid-template-areas: "up" "down";
 }
 
+.textfooter h1 {
+  font-size: 20pt;
+  font-weight: 400;
+}
+
+.textfooter p {
+  font-weight: 300;
+  font-size: 14pt;
+}
+
 .textfooter .txt {
   -ms-grid-row: 1;
   -ms-grid-column: 1;
   grid-area: up;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(262px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(262px, 1fr));
+  -ms-grid-columns: (minmax(280px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-column-gap: 40px;
+  text-align: center;
 }
 
 .textfooter .maintxt {
@@ -449,6 +463,18 @@ main {
             transform: translate(0px);
   }
   main {
+    width: 100%;
+  }
+  .textfooter {
+    margin-left: 10px;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    width: 100%;
+  }
+  .bigprod {
+    margin-left: 10px;
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
     width: 100%;
   }
 }
