@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="viewport" content="width=100;" />
+
+      <link rel="stylesheet" href="./css/style.css" />
+      <title>Document</title>
+   </head>
+   <body>
+      <main class="product-main">
+         <div class="navbar">
+            <div class="logo">
+               <h2>Burn utan sol</h2>
+               <p>Sverige</p>
+               <a href="./index.html"></a>
+            </div>
+            <div class="navlinks">
+               <a href="#">ALLA PRODUKTER</a>
+               <a href="#">BLOGG</a>
+               <a href="#">OM OS</a>
+            </div>
+            <div class="hamburger">
+               <div id="menuToggle">
+                  <input type="checkbox" />
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                  <ul id="menu">
+                     <a href="#"><li>ALLA PRODUKTER</li></a>
+                     <a href="#"><li>BLOGG</li></a>
+                     <a href="#"><li>OM OS</li></a>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <div class="product">
+            <div class="prod-main">
+               <div class="prod-img"><img src="./img/prod.jpg" alt="" /></div>
+               <div class="prod-price">
+                  <h2>Ida Warg</h2>
+                  <h1>Ida Warg Self Tanning Mousse 150 ml</h1>
+                  <p>
+                     Bäst pris &nbsp;&nbsp;&nbsp;
+                     <span class="green-price">1 1 1 kr</span>
+                  </p>
+                  <div class="iframe">
+                     <style>
+                        .placeholder {
+                           border: 5px solid #f3f3f3;
+                           border-radius: 50%;
+                           border-top: 5px solid #3498db;
+                           width: 45px;
+                           height: 45px;
+                           -webkit-animation: spin 2s linear infinite;
+                           animation: spin 2s linear infinite;
+                           left: 80vh;
+                           top: 25vh;
+                           position: relative;
+                        }
+
+                        @-webkit-keyframes spin {
+                           0% {
+                              -webkit-transform: rotate(0deg);
+                           }
+                           100% {
+                              -webkit-transform: rotate(360deg);
+                           }
+                        }
+
+                        @keyframes spin {
+                           0% {
+                              transform: rotate(0deg);
+                           }
+                           100% {
+                              transform: rotate(360deg);
+                           }
+                        }
+                        .list {
+                           -webkit-column-count: 3;
+                           -moz-column-count: 3;
+                           column-count: 3;
+                           list-style: none;
+                           font-size: 10vh;
+                        }
+                        .button {
+                           float: right;
+                        }
+                     </style>
+
+                     <body style="background-color: #ffffff00;">
+                        <p class="placeholder"></p>
+                        <ul class="list-group"></ul>
+                     </body>
+
+                     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+                     <script>
+                        $(document).ready(() => {
+                           populateData();
+                        })();
+
+                        function goToTarget(link) {
+                           window.open(link);
+                        }
+
+                        function getProductName() {
+                           var url = window.location != window.parent.location ? document.referrer : document.location.href;
+                           let title = url.split("products/");
+                           title = title.slice(-1).pop();
+                           return title;
+                        }
+                     </script>
+
+                     <script>
+                        function populateData() {
+                           $.get("https://stn2lnjqzk.execute-api.eu-central-1.amazonaws.com/default/stayGolden?product=" + getProductName()).then((data, status) => {
+                              if (data.length == 0) {
+                                 $(".placeholder").remove();
+                                 $(".list-group").append("<p>Hittade inga priser</p>");
+                              } else {
+                                 $(".placeholder").remove();
+
+                                 sortBestPrices(data.resellers);
+
+                                 data.resellers.forEach((item, index) => {
+                                    console.log(item.thumbnail);
+                                    $(".list-group").append(
+                                       ' <ul class="list list-group-item list-group-item-action" style="margin: 3vh 0 3vh 0"> ' +
+                                          "         <li>" +
+                                          "           <img " +
+                                          '              width="auto"' +
+                                          '             height="18"' +
+                                          '             src="' +
+                                          item.thumbnail +
+                                          '"' +
+                                          '            alt="alt"' +
+                                          "           />" +
+                                          "        </li>" +
+                                          "<li>" +
+                                          ~~item.price +
+                                          " :-</li>" +
+                                          "<li style='float:right'>" +
+                                          ' <button onclick="goToTarget(' +
+                                          "'" +
+                                          item.url +
+                                          "'" +
+                                          ')"  type="button" class="btn btn-success">Besök</button> ' +
+                                          "   </li>" +
+                                          "  </ul>"
+                                    );
+                                 });
+                              }
+                           });
+                        }
+
+                        function sortBestPrices(data) {
+                           data.sort(function (a, b) {
+                              return a.price - b.price;
+                           });
+                        }
+                     </script>
+                  </div>
+               </div>
+            </div>
+            <div class="prod-desc">
+               <h1>Produktbeskrivning</h1>
+               <p>
+                  Ger ett vackert solkysst resultat på bara 3 timmar med hjälp av naturligt socker (DHA). <br /><br />
+                  Moussen är lättanvänd och perfekt för dig som vill ha enkel applicering och ett naturligt resultat. Parfymfri och avger heller inte den typiska "brun utan sol"-doften. Passar alla hudtoner. Återfuktar i 48 timmar.
+                  <br /><br />
+                  100 % vegansk!
+                  <br /><br />
+                  Pumpa ut önskad mängd i handsken eller direkt i handflatan. <br />
+                  Applicera moussen i ett jämnt, tunt lager över huden. Tvätta händerna efteråt. <br /><br />
+                  150 ml Ida Warg Self-Tanning Mousse 150 ml
+               </p>
+               <h1>Vid användning av Mousse</h1>
+               <p>
+                  Det är inte alltid enkelt att som nybörjare veta hur man ska applicera olika typer av produkter och många undrar säker om hur man använder brun utan sol mousse. För att få det perfekta resultatet vid användning av mousse så ska man använda en brun utan sol handske, detta för att få ett jämnt lager över kroppen. Det är även viktigt att tänka på att kroppen varken är torr eller fuktigt, har du duschat så är det bra att torka dig ordentligt och vänta en timma. Smörj därefter in
+                  noggrant och täck hela kroppen och låt hålla i flera timmar innan duschen. Repetera denna process en gång i veckan för en perfekt bränna. Det är enkelt att använda den på ansiktet och hela kroppen och utan handske om man så vill, dock så rekommender vi att alltid ha en handske till kroppen.
+               </p>
+            </div>
+         </div>
+
+         <div class="footer">
+            <div class="left">
+               <span class="links">
+                  <a href="#">BRUN UTAN SOL SVERIGE</a>
+                  <a href="#">Alla produkter</a>
+                  <a href="#">Om oss</a>
+                  <a href="#">Blogg</a>
+               </span>
+               <h5>Kontakta oss</h5>
+               <span class="adress">
+                  <p>BRUN UTAN SOL SVERIGE</p>
+                  <p>Tel: 08 - 730 26 49</p>
+               </span>
+               <span class="mail"><a href="#">brunutansol.staygolden@gmail.com</a></span>
+            </div>
+            <div class="mid">
+               <h3>Vilka är vi?</h3>
+               <p>Vårt mål är att tillhandahålla dom bästa brun utan sol produkterna på marknaden till dom lägsta priserna. Vi vill även hjälpa våra följare att få en god överblick om hur man handskas med brun utan sol för att få bäst resultat. Rekommendationer till olika företag sker igenom betalda samarbeten och vi tar endsat fram seriösa företag som man kan lita på.</p>
+            </div>
+            <div class="right">
+               <h4>Håll dig uppdaterad med tips och nya inlägg i bloggen</h4>
+               <form>
+                  <input type="text" placeholder="EPOST" />
+                  <button type="submit">Prenumerera</button>
+               </form>
+            </div>
+         </div>
+         <div class="copyright">
+            <p>
+               &copy 2020 BRUN UTAN SOL SVERIGE | COOKIES
+            </p>
+         </div>
+      </main>
+
+      <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+      <script src="./js/app.js"></script>
+   </body>
+</html>

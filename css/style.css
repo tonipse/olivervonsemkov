@@ -52,13 +52,13 @@ main {
 }
 
 .footer {
-  -ms-grid-row: 8;
+  -ms-grid-row: 4;
   -ms-grid-column: 1;
   grid-area: footer;
 }
 
 .copyright {
-  -ms-grid-row: 9;
+  -ms-grid-row: 5;
   -ms-grid-column: 1;
   grid-area: copyright;
 }
@@ -80,6 +80,7 @@ main {
 }
 
 .navbar .logo {
+  cursor: pointer;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -350,8 +351,8 @@ main {
   grid-area: up;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (minmax(280px, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  -ms-grid-columns: (minmax(362px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(362px, 1fr));
   grid-column-gap: 40px;
   text-align: center;
 }
@@ -443,6 +444,73 @@ main {
 
 .copyright {
   text-align: center;
+}
+
+.product-main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  width: 100%;
+      grid-template-areas: "navbar" "ham" "product" "footer" "copyright";
+}
+
+.product {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: product;
+  margin-top: 60px;
+  width: 60%;
+  margin-left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+}
+
+.prod-main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.prod-main .prod-price .iframe {
+  margin-top: 10px;
+}
+
+.prod-main .prod-price h2 {
+  font-size: 16pt;
+  font-weight: 300;
+}
+
+.prod-main .prod-price h1 {
+  font-size: 17pt;
+  font-weight: 500;
+}
+
+.prod-main .prod-price p {
+  font-size: 21pt;
+  font-weight: 200;
+}
+
+.prod-main .prod-price .green-price {
+  color: green;
+}
+
+.prod-desc {
+  margin-top: 30px;
+}
+
+.prod-desc h1 {
+  font-size: 19pt;
+  font-weight: 500;
+}
+
+.prod-desc p {
+  font-weight: 300;
 }
 
 @media only screen and (max-width: 700px) {
@@ -563,9 +631,9 @@ main {
 
 #menu {
   position: absolute;
-  width: 1000vw;
+  width: 1100vw;
   margin: -100px 0 0 -500px;
-  height: 5000px;
+  height: 3000px;
   padding: 50px;
   padding-top: 125px;
   -webkit-box-shadow: 0px 4px 10px #bdbdbd;
