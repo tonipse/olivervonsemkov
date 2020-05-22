@@ -1,0 +1,117 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+
+<style>
+   .placeholder {
+      border: 5px solid #f3f3f3;
+      border-radius: 50%;
+      border-top: 5px solid #3498db;
+      width: 45px;
+      height: 45px;
+      -webkit-animation: spin 2s linear infinite;
+      animation: spin 2s linear infinite;
+      left: 80vh;
+      top: 25vh;
+      position: relative;
+   }
+
+   @-webkit-keyframes spin {
+      0% {
+         -webkit-transform: rotate(0deg);
+      }
+      100% {
+         -webkit-transform: rotate(360deg);
+      }
+   }
+
+   @keyframes spin {
+      0% {
+         transform: rotate(0deg);
+      }
+      100% {
+         transform: rotate(360deg);
+      }
+   }
+   .list {
+      -webkit-column-count: 3;
+      -moz-column-count: 3;
+      column-count: 3;
+      list-style: none;
+      font-size: 10vh;
+   }
+   .button {
+      float: right;
+   }
+</style>
+
+<body style="background-color: #ffffff00;">
+   <p class="placeholder"></p>
+   <ul class="list-group"></ul>
+</body>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+<script>
+   $(document).ready(() => {
+      populateData();
+   })();
+
+   function goToTarget(link) {
+      window.open(link);
+   }
+
+   function getProductName() {
+      var url = window.location != window.parent.location ? document.referrer : document.location.href;
+      let title = url.split("products/");
+      title = title.slice(-1).pop();
+      return title;
+   }
+</script>
+
+<script>
+   function populateData() {
+      $.get("https://stn2lnjqzk.execute-api.eu-central-1.amazonaws.com/default/stayGolden?product=.").then((data, status) => {
+         if (data.length == 0) {
+            $(".placeholder").remove();
+            $(".list-group").append("<p>Hittade inga priser</p>");
+         } else {
+            $(".placeholder").remove();
+
+            sortBestPrices(data.resellers);
+
+            data.resellers.forEach((item, index) => {
+               console.log(item.thumbnail);
+               $(".list-group").append(
+                  ' <ul class="list list-group-item list-group-item-action" style="margin: 3vh 0 3vh 0"> ' +
+                     "         <li>" +
+                     "           <img " +
+                     '              width="auto"' +
+                     '             height="18"' +
+                     '             src="' +
+                     item.thumbnail +
+                     '"' +
+                     '            alt="alt"' +
+                     "           />" +
+                     "        </li>" +
+                     "<li>" +
+                     ~~item.price +
+                     " :-</li>" +
+                     "<li style='float:right'>" +
+                     ' <button onclick="goToTarget(' +
+                     "'" +
+                     item.url +
+                     "'" +
+                     ')"  type="button" class="btn btn-success">Besök</button> ' +
+                     "   </li>" +
+                     "  </ul>"
+               );
+            });
+         }
+      });
+   }
+
+   function sortBestPrices(data) {
+      data.sort(function (a, b) {
+         return a.price - b.price;
+      });
+   }
+</script>

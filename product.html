@@ -114,7 +114,7 @@
 
                      <script>
                         function populateData() {
-                           $.get("https://stn2lnjqzk.execute-api.eu-central-1.amazonaws.com/default/stayGolden?product=" + getProductName()).then((data, status) => {
+                           $.get("https://stn2lnjqzk.execute-api.eu-central-1.amazonaws.com/default/stayGolden?product=.").then((data, status) => {
                               if (data.length == 0) {
                                  $(".placeholder").remove();
                                  $(".list-group").append("<p>Hittade inga priser</p>");
@@ -126,7 +126,7 @@
                                  data.resellers.forEach((item, index) => {
                                     console.log(item.thumbnail);
                                     $(".list-group").append(
-                                       ' <ul class="list list-group-item list-group-item-action" style="margin: 3vh 0 3vh 0"> ' +
+                                       ' <ul class="list list-group-item list-group-item-action" style="margin: 1vh 0 1vh 0"> ' +
                                           "         <li>" +
                                           "           <img " +
                                           '              width="auto"' +
